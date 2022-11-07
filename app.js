@@ -37,10 +37,22 @@ let app_init = async () => {
      next();
    });
 
+   app.use(express.static(path.join(__dirname, './dist/wiki-flix-frontend')));
+
+   app.get('/',function(req,res){
+    res.sendFile(path.join(__dirname,"./dist/wiki-flix-frontend/index.html"));
+  });
+  app.get('/login',function(req,res){
+    res.sendFile(path.join(__dirname,"./dist/wiki-flix-frontend/index.html"));
+  });
+  app.get('/signup',function(req,res){
+    res.sendFile(path.join(__dirname,"./dist/wiki-flix-frontend/index.html"));
+  });
+
    app.use(routes);
   
-    app.listen(process.env.PORT || config.port, () => {
-      console.log(`App listening on port ${process.env.PORT || config.port}`);
+    app.listen(process.env.PORT || 80, () => {
+      console.log(`App listening on port ${process.env.PORT || 80}`);
     });
   };
   
