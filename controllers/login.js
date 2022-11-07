@@ -8,7 +8,7 @@ let key = require('../config').key;
 
 let algorithm = 'aes-256-cbc'; // or any other algorithm supported by OpenSSL
 
-
+// an api to validate a user's ceredentails and login
 
 const user_login = async(req,res,next) => {
 
@@ -17,7 +17,7 @@ const user_login = async(req,res,next) => {
         let pwd,encrypted,user_data;
         let email_check = req.body.email_check;
 
-        console.log('came here');
+
         
         if(email_check){
             user_data = await mongoClient.db.collection('user_details').findOne({email:user});

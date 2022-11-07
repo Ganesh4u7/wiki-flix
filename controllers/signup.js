@@ -9,6 +9,7 @@ let algorithm = 'aes-256-cbc'; // or any other algorithm supported by OpenSSL
 const ivstring = crypto.randomBytes(16); 
 let iv = ivstring.toString('hex').slice(0, 16); 
 
+// an api to to signup user into wikiflix
 const user_signup = async (req,res,next) =>{
 
     try{
@@ -53,7 +54,7 @@ const user_signup = async (req,res,next) =>{
             auth: auth
           });
           let mailOptions = {
-            from: 'wikiflix@gmail.com',
+            from: 'wikiflixx@gmail.com',
             to: body.email,
             subject: 'Account Verification Token',
             text: 'Hello,\n\n' + 'Your otp is ' + `${otp}`
