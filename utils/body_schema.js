@@ -26,6 +26,16 @@ const body_schemas = {
         email: Joi.string().email().required(),
         password: Joi.string().required()
     }),
+    add_to_wishlist: Joi.object({
+
+    }),
+    get_wishlist: Joi.object({
+
+    }),
+    check_user_ratings: Joi.object({
+
+    }),
+
     
 };
 

@@ -4,11 +4,24 @@ const mongoClient = require("../connections/mongo_connection").get();
 const rate_a_movie = async(req,res,next)=>{
     try{
         let body = req.body;
+        let titleId = req.body.titleId;
 
         await mongoClient.db.collection('ratings')
                         .insertOne({...body});
 
-        res.send({status:true,payload:"Rating added"});                
+        let rating = await mongoClient.db.collection('ratings')
+                        .aggregate([{$match:{titleId}},
+                            {
+                              $group:
+                                {
+                                  _id: "$titleId",
+                                  rating: { $avg: "$rating" },
+                                  count: { $sum: 1 }
+                                }
+                            }
+                          ]).toArray();
+
+        res.send({status:true,payload:"Rating added",rating:rating[0]});                
     }
     catch(error){
         console.log(error);

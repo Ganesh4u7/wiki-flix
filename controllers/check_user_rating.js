@@ -7,8 +7,7 @@ const check_user_rating = async(req,res,next)=>{
 
         let rating_exists = await mongoClient.db.collection('ratings')
                                         .findOne({...body});
-
-        console.log(rating_exists)                                
+                                
             
         if(rating_exists){
             res.send({status:true,payload:rating_exists});                               

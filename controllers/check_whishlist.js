@@ -10,8 +10,7 @@ const check_wishlist = async (req,res,next)=>{
 
         let movie_exists = await mongoClient.db.collection('wishlist')
                                     .findOne({username,titleId});
-
-        console.log(movie_exists);                            
+                            
 
          if(movie_exists){
             res.send({status:true,payload:movie_exists});

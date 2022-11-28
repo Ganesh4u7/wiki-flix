@@ -17,7 +17,7 @@ const get_rating = async(req,res,next)=>{
                                         }
                                     }
                                   ]).toArray();
-        console.log(rating);  
+                                    
         if(rating.length >0){
             res.send({status:true,payload:rating[0]});
         }    

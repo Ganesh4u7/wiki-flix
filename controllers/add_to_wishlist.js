@@ -4,10 +4,16 @@ const mongoClient = require("../connections/mongo_connection").get();
 const add_to_wishlist = async (req,res,next)=>{
 
     try{
+        
         let data = req.body;
+        let wishlisted = await mongoClient.db.collection('wishlist')
+                                .findOne({username:data.username,titleId:data.titleId});
 
-        await mongoClient.db.collection('wishlist')
-                    .insertOne({...data});
+        console.log(wishlisted); 
+        if(!wishlisted){
+            await mongoClient.db.collection('wishlist')
+                                .insertOne({...data});
+        }                        
 
          res.send({status:true,payload:"Added to wishlist"});           
     }

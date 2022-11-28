@@ -13,6 +13,8 @@ const check_wishlist = require("../controllers/check_whishlist");
 const rate_a_movie = require("../controllers/rate_a_movie");
 const get_rating = require("../controllers/get_rating_by_titleId");
 const check_user_rating = require("../controllers/check_user_rating");
+const review_a_movie = require("../controllers/review_a_movie");
+const get_Reviews = require("../controllers/get_reviews_by_titleId");
 
 
 router.post('/login',user_login);
@@ -33,6 +35,10 @@ router.post('/check_wishlist',check_wishlist);
 router.post('/rate_a_movie',rate_a_movie);
 router.post('/get_rating_by_titleId',get_rating);
 router.post('/check_user_rating',check_user_rating)
+
+// Reviews APIs
+router.post('/review_a_movie',review_a_movie);
+router.post('/get_review_by_titleId',get_Reviews)
 
 
 

@@ -5,7 +5,6 @@ const user_exist_check = async (req,res,next) => {
 
     try{
         let query = req.body.query;
-        console.log('user exist check');
         let user_exist = await mongoClient.db.collection('user_details')
                                 .find({...query}).toArray();
         // console.log(user_exist);                        
