@@ -1,5 +1,5 @@
 module.exports = {
-  port: 5689,
+  port: 80,
   mongo_url:
   "mongodb://ganesh:thebest1@cluster0-shard-00-00.e6tdc.mongodb.net:27017,cluster0-shard-00-01.e6tdc.mongodb.net:27017,cluster0-shard-00-02.e6tdc.mongodb.net:27017/?ssl=true&replicaSet=atlas-6o27kk-shard-0&authSource=admin&retryWrites=true&w=majority",
   database_name: "wiki-flix",
